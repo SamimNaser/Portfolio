@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { Menu, X, Sun, Moon } from "lucide-react";
-import ThemeToggle from "./ThemeToggle";
+import { Menu, X } from "lucide-react";
 
-const NavBar = ({ dark, setDark }) => {
+const NavBar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -75,10 +74,6 @@ const NavBar = ({ dark, setDark }) => {
                 {item.label}
               </a>
             ))}
-            {/* Theme toggle */}
-            <div className="ml-4">
-              <ThemeToggle dark={dark} setDark={setDark} />
-            </div>
           </div>
 
           {/* Mobile Menu Button */}
@@ -103,10 +98,6 @@ const NavBar = ({ dark, setDark }) => {
           }`}
         >
           <div className="surface border border-default rounded-lg shadow-lg p-4 space-y-4">
-            {/* Theme toggle */}
-            <div className="flex justify-center">
-              <ThemeToggle dark={dark} setDark={setDark} />
-            </div>
             {navItems.map((item) => (
               <a
                 key={item.href}

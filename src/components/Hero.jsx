@@ -50,11 +50,13 @@ const Hero = ({ hasAnimated }) => {
         className={`relative z-10 text-center px-6 transition-all duration-1000 ${hasAnimated?.hero ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
         id="hero"
       >
-        <h1 className="text-4xl md:text-7xl font-bold text-white">{name}</h1>
+        <h1 className="relative z-10 text-lg md:text-8xl  bg-clip-text text-transparent bg-linear-to-r from-white to-neutral-500  text-center font-sans font-bold">
+          {name}
+        </h1>
 
         <p className="mt-4 text-lg md:text-xl text-neutral-400">{subtitle}</p>
 
-        <div className="mt-6 text-xl md:text-2xl text-cyan-400 font-semibold h-8">
+        <div className="mt-6 text-xl md:text-4xl text-blue-500 font-semibold h-8">
           {currentText}
           <span className="animate-pulse">|</span>
         </div>
