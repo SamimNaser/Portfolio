@@ -106,7 +106,7 @@ const NavBar = () => {
                   e.preventDefault();
                   scrollToSection(item.href);
                 }}
-                className="block font-bold text-secondary hover:text-primary transition-colors py-2"
+                className="block font-bold text-primary hover:text-primary transition-colors py-2"
               >
                 {item.label}
               </a>
