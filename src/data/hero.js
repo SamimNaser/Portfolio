@@ -1,5 +1,5 @@
 export const heroData = {
-  name: "Sk Samim Naser",
+  name: "SK SAMIM NASER",
   roles: ["Frontend Developer", "App Developer"],
   description:
     "Built on a strong Java foundation, my experience spans app development and modern web technologies. I'm currently exploring AI and automation to create intelligent, efficient, and user-focused solutions.",

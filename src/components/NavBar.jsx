@@ -36,11 +36,10 @@ const NavBar = () => {
   }, []);
 
   const navItems = [
-    { href: "#about", label: "About" },
-    { href: "#journey", label: "My Journey" },
-    { href: "#projects", label: "Projects" },
-    { href: "#skills", label: "Skills" },
-    { href: "#contact", label: "Contact" },
+    { href: "#about", label: "ABOUT" },
+    { href: "#projects", label: "PROJECTS" },
+    { href: "#skills", label: "SKILLS" },
+    { href: "#contact", label: "CONTACT" },
   ];
 
   return (
@@ -53,10 +52,10 @@ const NavBar = () => {
         <div className="flex justify-between items-center">
           {/* Portfolio Heading  */}
           <div
-            className="text-2xl font-bold transition-colors cursor-pointer hover:opacity-80 text-primary"
+            className="text-lg font-bold transition-colors cursor-pointer text-primary hover:opacity-70"
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
           >
-            Portfolio
+            <a>PORTFOLIO</a>
           </div>
 
           {/* Desktop Menu */}
@@ -65,7 +64,7 @@ const NavBar = () => {
               <a
                 key={item.href}
                 href={item.href}
-                className="transition-colors font-bold text-primary"
+                className="transition-colors font-bold text-primary text-lg hover:opacity-70"
                 onClick={(e) => {
                   e.preventDefault();
                   scrollToSection(item.href);
