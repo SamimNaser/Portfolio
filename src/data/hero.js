@@ -4,9 +4,9 @@ export const heroData = {
   description:
     "Built on a strong Java foundation, my experience spans app development and modern web technologies. I'm currently exploring AI and automation to create intelligent, efficient, and user-focused solutions.",
   stats: [
-    { number: "3+", label: "Year Learning & Building" },
-    { number: "5+", label: "Apps & Projects" },
-    { number: "10+", label: "Technologies" },
+    { number: 5, suffix: "+", label: "Apps & Projects" },
+    { number: 3, suffix: "+", label: "Year Learning & Building" },
+    { number: 10, suffix: "+", label: "Technologies" },
   ],
   socialLinks: [
     {
@@ -34,7 +34,7 @@ export const heroData = {
     {
       text: "Contact Me",
       href: "#contact",
-      variant: "secondary",
+      variant: "primary",
     },
   ],
 };

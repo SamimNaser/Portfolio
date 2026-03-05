@@ -1,8 +1,9 @@
 "use client";
 import React, { useState, useEffect } from "react";
+import { heroData } from "../data/hero";
 
 import { Meteors } from "./ui/meteors";
-import { heroData } from "../data/hero";
+import { NumberTicker } from "./ui/number-ticker";
 
 import { ArrowDown, Github, Instagram, Mail } from "lucide-react";
 
@@ -53,18 +54,18 @@ const Hero = ({ hasAnimated }) => {
         id="hero"
       >
         {/* Name */}
-        <h1 className="relative z-10 mb-4 text-4xl md:text-7xl  bg-clip-text text-transparent bg-linear-to-r from-white to-neutral-500  text-center font-sans font-bold">
+        <h1 className="relative z-10 mb-6 text-4xl md:text-7xl  bg-clip-text text-transparent bg-linear-to-r from-white to-neutral-500  text-center font-sans font-bold">
           {name}
         </h1>
 
         {/* Typewriter role */}
-        <div className="mb-10 text-xl md:text-4xl text-blue-500 font-semibold h-8">
+        <div className="mb-8 text-xl md:text-4xl text-blue-500 font-semibold h-8">
           {currentText}
           <span className="animate-pulse">|</span>
         </div>
 
         {/* Description */}
-        <p className="mb-8 text-lg leading-relaxed max-w-5xl md:text-xl text-neutral-400">
+        <p className="mb-10 text-lg leading-relaxed max-w-5xl md:text-xl text-neutral-400">
           {description}
         </p>
 
@@ -81,12 +82,38 @@ const Hero = ({ hasAnimated }) => {
               <a
                 key={index}
                 href={social.url}
-                className="group p-3 surface rounded-full shadow-md hover:shadow-lg transition-all duration-300 transform hover:scale-110 hover:-translate-y-1"
+                className="group p-3 surface rounded-full shadow-md hover:shadow-lg transition-all duration-300 transform hover:scale-110 hover:-translate-y-1.5"
               >
                 <IconComponent className="w-6 h-6 text-primary group-hover:text-white transition-colors" />
               </a>
             );
           })}
+        </div>
+
+        {/* CTA Buttons */}
+        <div className="flex flex-col sm:flex-row gap-6 justify-center mb-8 animate-fade-in-up delay-300">
+          {heroData.ctaButtons.map((button, index) => (
+            <a
+              key={index}
+              href={button.href}
+              className="group relative px-5 py-2.5 rounded-lg font-medium text-sm transition-all duration-300 border border-black text-black dark:border-white dark:text-white hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black"
+            >
+              {button.text}
+            </a>
+          ))}
+        </div>
+
+        {/* Stats */}
+        <div className="grid grid-cols-3 gap-10 max-w-xl mx-auto justify-between mb-8 animate-fade-in-up delay-500">
+          {heroData.stats.map((stat, index) => (
+            <div key={index} className="text-center">
+              <div className="text-2xl font-bold text-primary mb-1 flex justify-center items-baseline gap-1">
+                <NumberTicker value={stat.number} delay={0.5} />
+                {stat.suffix}
+              </div>
+              <div className="text-xs text-primary">{stat.label}</div>
+            </div>
+          ))}
         </div>
       </div>
     </section>
