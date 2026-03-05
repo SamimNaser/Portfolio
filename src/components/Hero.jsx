@@ -1,6 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import { BackgroundBeams } from "./ui/background-beams";
+
+import { Meteors } from "./ui/meteors";
 import { heroData } from "../data/hero";
 
 import { ArrowDown, Github, Instagram, Mail } from "lucide-react";
@@ -46,8 +47,7 @@ const Hero = ({ hasAnimated }) => {
 
   return (
     <section className="relative h-screen flex items-center justify-center bg-neutral-950 overflow-hidden">
-      <BackgroundBeams />
-
+      <Meteors />
       <div
         className={`relative z-10 text-center px-6 transition-all duration-1000 ${hasAnimated?.hero ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
         id="hero"

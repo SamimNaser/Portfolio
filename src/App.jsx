@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useIntersectionObserver } from "./hooks/userIntersectionObserver";
 //import { useScrollToTop } from "./hooks/useScrollToTop";
 import Hero from "./components/Hero";
@@ -8,19 +8,11 @@ function App() {
   const hasAnimated = useIntersectionObserver();
   //const showScrollTop = useScrollToTop();
 
-  const [dark, setDark] = useState(false);
-
-  useEffect(() => {
-    if (dark) {
-      document.documentElement.classList.add("dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-    }
-  }, [dark]);
+  document.documentElement.classList.add("dark");
 
   return (
     <div className="min-h-screen bg-white dark:bg-gray-800 text-black dark:text-white">
-      <NavBar dark={dark} setDark={setDark} />
+      <NavBar />
       <Hero hasAnimated={hasAnimated} />
     </div>
   );
