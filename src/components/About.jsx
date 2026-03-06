@@ -30,15 +30,15 @@ const Icon = ({ icon, size = 40 }) => (
 
 const About = ({ hasAnimated }) => {
   return (
-    <section id="about" className="py-16 px-6 surface">
+    <section id="about" className="relative h-screen py-16 px-6 surface">
       <div className="max-w-6xl mx-auto">
         <div
           className={`transition-all duration-1000 delay-200 ${hasAnimated.about ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
         >
           <h2 className="text-7xl font-bold mb-12 text-center text-primary ">
-            ABOUT ME
+            About Me
           </h2>
-          <div className="grid md:grid-cols-3 gap-10 items-start ">
+          <div className="grid md:grid-cols-3 gap-6 items-start ">
             {/* Intro Section */}
             <div className="md:col-span-2 h-110 text-primary bg-primary/5 rounded-2xl p-8 flex flex-col gap-6 border border-transparent hover:border-primary transition-all duration-300">
               {/* Avatar */}
@@ -71,6 +71,11 @@ const About = ({ hasAnimated }) => {
 
             {/* Placeholder Section (content to be decided later) */}
             <div className="md:col-span-1 relative h-110 w-full overflow-hidden bg-primary/5 rounded-2xl px-10 border border-transparent hover:border-primary transition-all duration-300">
+              {/* Center Glow */}
+              {/* Blurred glow layer */}
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-24 h-24 rounded-full bg-cyan-400/50 blur-2xl"></div>
+              {/* Solid core */}
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-6 h-6 rounded-full bg-cyan-400 "></div>
               <OrbitingCircles
                 className="top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
                 radius={160}
@@ -99,7 +104,7 @@ const About = ({ hasAnimated }) => {
                 className="top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
                 radius={70}
                 iconSize={30}
-                speed={1}
+                speed={2}
               >
                 <Icon icon={siHtml5} />
                 <Icon icon={siTailwindcss} />
