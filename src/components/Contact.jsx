@@ -57,7 +57,10 @@ const Contact = ({ hasAnimated }) => {
   });
 
   return (
-    <section id="contact" className="relative h-screen py-16 px-10 surface">
+    <section
+      id="contact"
+      className="relative min-h-screen py-16 px-6 md:px-10 surface"
+    >
       <div className="max-w-6xl mx-auto text-center px-6">
         <div
           className={`transition-all duration-1000 delay-500 ${hasAnimated.contact ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
@@ -71,13 +74,13 @@ const Contact = ({ hasAnimated }) => {
             hello !
           </p>
 
-          <div className="grid md:grid-cols-2 gap-24 max-w-7xl mx-auto mt-12 w-full">
+          <div className="grid md:grid-cols-2 gap-12 md:gap-24 max-w-7xl mx-auto mt-12 w-full">
             {/* Left Side Contact Buttons */}
             <div className="flex flex-col items-center justify-end text-center gap-6 w-full h-full">
               <div className="text-primary text-sm">
                 <h2 className="text-2xl">Kolkata, India</h2>
               </div>
-              <div className="flex flex-row gap-4">
+              <div className="flex flex-row flex-wrap gap-4 justify-center">
                 {contactLinksWithIcons.map((link) => (
                   <a
                     key={link.label}
@@ -107,7 +110,7 @@ const Contact = ({ hasAnimated }) => {
                   name="user_name"
                   placeholder="XYZ"
                   required
-                  className="border-b border-gray-700 bg-transparent pb-5 outline-none text-primary text-3xl font-semibold placeholder:text-primary/40 focus:border-white transition-colors duration-300"
+                  className="border-b border-gray-700 bg-transparent pb-5 outline-none text-primary text-2xl md:text-3xl font-semibold placeholder:text-primary/40 focus:border-white transition-colors duration-300"
                 />
               </div>
               {/* Email Details */}
@@ -120,7 +123,7 @@ const Contact = ({ hasAnimated }) => {
                   name="user_email"
                   placeholder="xyz@example.com"
                   required
-                  className="border-b border-gray-700 bg-transparent pb-5 outline-none text-primary text-3xl font-semibold placeholder:text-primary/40 focus:border-white transition-colors duration-300"
+                  className="border-b border-gray-700 bg-transparent pb-5 outline-none text-primary text-2xl md:text-3xl font-semibold placeholder:text-primary/40 focus:border-white transition-colors duration-300"
                 />
               </div>
               {/* Message  */}
@@ -133,14 +136,14 @@ const Contact = ({ hasAnimated }) => {
                   rows="2"
                   placeholder="Tell me about your project..."
                   required
-                  className="border-b border-gray-700 bg-transparent pb-5 outline-none text-primary text-3xl font-semibold placeholder:text-primary/40 resize-none focus:border-white transition-colors duration-300"
+                  className="border-b border-gray-700 bg-transparent pb-5 outline-none text-primary text-2xl md:text-3xl font-semibold placeholder:text-primary/40 resize-none focus:border-white transition-colors duration-300"
                 />
               </div>
               {/* Submit Button */}
               <button
                 type="submit"
                 disabled={sending}
-                className="mt-4 inline-flex items-center gap-2 self-start px-6 py-4 bg-white text-black rounded-full font-medium tracking-wide hover:scale-105 transition-transform duration-200 disabled:opacity-50"
+                className="mt-4 inline-flex items-center gap-2 self-center md:self-start px-5 py-3 md:px-6 md:py-4 bg-white text-black rounded-full font-medium tracking-wide hover:scale-105 transition-transform duration-200 disabled:opacity-50"
               >
                 {sending ? "Sending..." : "Send Message"}
                 <Send className="w-5 h-5" />
