@@ -35,8 +35,8 @@ const About = ({ hasAnimated }) => {
         <div
           className={`transition-all duration-1000 delay-200 ${hasAnimated.about ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
         >
-          <h2 className="text-7xl font-bold mb-12 text-center text-primary ">
-            About Me
+          <h2 className="text-3xl md:text-6xl font-bold mb-12 text-center text-primary ">
+            ABOUT ME
           </h2>
           <div className="grid md:grid-cols-3 gap-6 items-start ">
             {/* Intro Section */}
@@ -45,14 +45,11 @@ const About = ({ hasAnimated }) => {
               <img
                 src="/src/assets/profile.jpeg"
                 alt="Profile"
-                className="w-18 h-18 rounded-full object-cover"
+                className="w-24 h-24 rounded-full object-cover"
               />
 
-              {/* Heading */}
-              <h3 className="text-4xl font-semibold">Who am I?</h3>
-
               {/* Description */}
-              <p className="text-lg leading-relaxed text-primary/80">
+              <p className="text-lg leading-relaxed text-primary/80 mt-10">
                 My name is{" "}
                 <span className="text-primary font-semibold">
                   Sk Samim Naser

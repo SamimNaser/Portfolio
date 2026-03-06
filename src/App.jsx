@@ -6,6 +6,7 @@ import NavBar from "./components/NavBar";
 import Hero from "./components/Hero";
 import About from "./components/About";
 import Contact from "./components/Contact";
+import Footer from "./components/Footer";
 
 function App() {
   const hasAnimated = useIntersectionObserver();
@@ -19,6 +20,7 @@ function App() {
       <Hero hasAnimated={hasAnimated} />
       <About hasAnimated={hasAnimated} />
       <Contact hasAnimated={hasAnimated} />
+      <Footer />
     </div>
   );
 }

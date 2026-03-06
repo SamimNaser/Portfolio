@@ -62,8 +62,8 @@ const Contact = ({ hasAnimated }) => {
         <div
           className={`transition-all duration-1000 delay-500 ${hasAnimated.contact ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
         >
-          <h2 className="text-6xl font-bold mb-10 text-primary">
-            Let's Work Together
+          <h2 className="text-3xl md:text-6xl font-bold mb-10 text-primary">
+            LET'S WORK TOGETHER
           </h2>
           <p className="text-xl text-primary mb-10 max-w-3xl mx-auto">
             I'm always interested in new opportunities and exciting projects.

@@ -66,7 +66,7 @@ const Hero = ({ hasAnimated }) => {
         id="hero"
       >
         {/* Name */}
-        <h1 className="relative z-10 mb-6 mt-15 text-4xl md:text-7xl  bg-clip-text text-transparent bg-linear-to-r from-white to-neutral-400  text-center font-sans font-bold">
+        <h1 className="relative z-10 mb-6 mt-15 text-5xl md:text-8xl bg-clip-text text-transparent bg-linear-to-r from-white to-neutral-500  text-center font-sans font-bold">
           {name}
         </h1>
 
