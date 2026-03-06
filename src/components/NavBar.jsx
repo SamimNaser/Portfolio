@@ -51,11 +51,10 @@ const NavBar = () => {
       <div className="max-w-6xl mx-auto px-6 py-4">
         <div className="flex justify-between items-center">
           {/* Portfolio Heading  */}
-          <div
-            className="text-lg font-bold transition-colors cursor-pointer text-primary hover:opacity-70"
-            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-          >
-            <a>PORTFOLIO</a>
+          <div onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
+            <a className="text-lg font-bold transition-colors cursor-pointer text-primary hover:opacity-70">
+              PORTFOLIO
+            </a>
           </div>
 
           {/* Desktop Menu */}
