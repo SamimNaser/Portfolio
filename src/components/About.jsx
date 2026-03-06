@@ -30,7 +30,7 @@ const Icon = ({ icon, size = 40 }) => (
 
 const About = ({ hasAnimated }) => {
   return (
-    <section id="about" className="relative h-screen py-16 px-6 surface">
+    <section id="about" className="relative min-h-screen py-16 px-6 surface">
       <div className="max-w-6xl mx-auto">
         <div
           className={`transition-all duration-1000 delay-200 ${hasAnimated.about ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
@@ -40,16 +40,16 @@ const About = ({ hasAnimated }) => {
           </h2>
           <div className="grid md:grid-cols-3 gap-6 items-start ">
             {/* Intro Section */}
-            <div className="md:col-span-2 h-110 text-primary bg-primary/5 rounded-2xl p-8 flex flex-col gap-6 border border-transparent hover:border-primary transition-all duration-300">
+            <div className="md:col-span-2 min-h-105 md:min-h-112.5 text-primary bg-primary/5 rounded-2xl p-8 flex flex-col gap-6 border border-transparent hover:border-primary transition-all duration-300">
               {/* Avatar */}
               <img
                 src="/src/assets/profile.jpeg"
                 alt="Profile"
-                className="w-24 h-24 rounded-full object-cover"
+                className="w-20 h-20 md:w-24 md:h-24 rounded-full object-cover"
               />
 
               {/* Description */}
-              <p className="text-lg leading-relaxed text-primary/80 mt-10">
+              <p className="text-lg leading-relaxed text-primary/80 mt-6 md:mt-10">
                 My name is{" "}
                 <span className="text-primary font-semibold">
                   Sk Samim Naser
@@ -67,7 +67,7 @@ const About = ({ hasAnimated }) => {
             </div>
 
             {/* Placeholder Section (content to be decided later) */}
-            <div className="md:col-span-1 relative h-110 w-full overflow-hidden bg-primary/5 rounded-2xl px-10 border border-transparent hover:border-primary transition-all duration-300">
+            <div className="md:col-span-1 relative min-h-105 md:min-h-112.5 w-full overflow-hidden bg-primary/5 rounded-2xl px-10 border border-transparent hover:border-primary transition-all duration-300">
               {/* Center Glow */}
               {/* Blurred glow layer */}
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-24 h-24 rounded-full bg-cyan-400/50 blur-2xl"></div>
@@ -75,7 +75,7 @@ const About = ({ hasAnimated }) => {
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-6 h-6 rounded-full bg-cyan-400 "></div>
               <OrbitingCircles
                 className="top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
-                radius={160}
+                radius={155}
                 iconSize={34}
                 speed={2}
               >
@@ -86,7 +86,7 @@ const About = ({ hasAnimated }) => {
               </OrbitingCircles>
               <OrbitingCircles
                 className="top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
-                radius={115}
+                radius={110}
                 reverse
                 iconSize={32}
                 speed={1.5}
@@ -99,7 +99,7 @@ const About = ({ hasAnimated }) => {
 
               <OrbitingCircles
                 className="top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
-                radius={70}
+                radius={65}
                 iconSize={30}
                 speed={2}
               >
