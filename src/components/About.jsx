@@ -1,0 +1,117 @@
+import React from "react";
+
+import { OrbitingCircles } from "./ui/orbiting-circles";
+import {
+  siJavascript,
+  siTypescript,
+  siReact,
+  siFlutter,
+  siPython,
+  siHtml5,
+  siDart,
+  siTailwindcss,
+  siDocker,
+  siN8n,
+  siGit,
+  siVite,
+} from "simple-icons/icons";
+
+const Icon = ({ icon, size = 40 }) => (
+  <svg
+    role="img"
+    viewBox="0 0 24 24"
+    width={size}
+    height={size}
+    fill={`#${icon.hex}`}
+  >
+    <path d={icon.path} />
+  </svg>
+);
+
+const About = ({ hasAnimated }) => {
+  return (
+    <section id="about" className="py-16 px-6 surface">
+      <div className="max-w-6xl mx-auto">
+        <div
+          className={`transition-all duration-1000 delay-200 ${hasAnimated.about ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
+        >
+          <h2 className="text-7xl font-bold mb-12 text-center text-primary ">
+            ABOUT ME
+          </h2>
+          <div className="grid md:grid-cols-3 gap-10 items-start ">
+            {/* Intro Section */}
+            <div className="md:col-span-2 h-110 text-primary bg-primary/5 rounded-2xl p-8 flex flex-col gap-6 border border-transparent hover:border-primary transition-all duration-300">
+              {/* Avatar */}
+              <img
+                src="/src/assets/profile.jpeg"
+                alt="Profile"
+                className="w-18 h-18 rounded-full object-cover"
+              />
+
+              {/* Heading */}
+              <h3 className="text-4xl font-semibold">Who am I?</h3>
+
+              {/* Description */}
+              <p className="text-lg leading-relaxed text-primary/80">
+                My name is{" "}
+                <span className="text-primary font-semibold">
+                  Sk Samim Naser
+                </span>
+                , a developer passionate about building modern web and mobile
+                applications. I started my journey with Java which helped me
+                build a strong programming foundation, and later expanded into
+                app development and modern web technologies.
+                <br />
+                <br />
+                Currently, I enjoy exploring AI, automation, and new tools that
+                help create intelligent, efficient, and user‑focused digital
+                experiences.
+              </p>
+            </div>
+
+            {/* Placeholder Section (content to be decided later) */}
+            <div className="md:col-span-1 relative h-110 w-full overflow-hidden bg-primary/5 rounded-2xl px-10 border border-transparent hover:border-primary transition-all duration-300">
+              <OrbitingCircles
+                className="top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+                radius={160}
+                iconSize={34}
+                speed={2}
+              >
+                <Icon icon={siDocker} />
+                <Icon icon={siGit} />
+                <Icon icon={siN8n} />
+                <Icon icon={siVite} />
+              </OrbitingCircles>
+              <OrbitingCircles
+                className="top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+                radius={115}
+                reverse
+                iconSize={32}
+                speed={1.5}
+              >
+                <Icon icon={siPython} />
+                <Icon icon={siJavascript} />
+                <Icon icon={siTypescript} />
+                <Icon icon={siDart} />
+              </OrbitingCircles>
+
+              <OrbitingCircles
+                className="top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+                radius={70}
+                iconSize={30}
+                speed={1}
+              >
+                <Icon icon={siHtml5} />
+                <Icon icon={siTailwindcss} />
+                <Icon icon={siReact} />
+                <Icon icon={siFlutter} />
+              </OrbitingCircles>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default About;

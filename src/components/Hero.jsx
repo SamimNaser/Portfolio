@@ -54,7 +54,7 @@ const Hero = ({ hasAnimated }) => {
         id="hero"
       >
         {/* Name */}
-        <h1 className="relative z-10 mb-6 text-4xl md:text-7xl  bg-clip-text text-transparent bg-linear-to-r from-white to-neutral-500  text-center font-sans font-bold">
+        <h1 className="relative z-10 mb-6 mt-15 text-4xl md:text-7xl  bg-clip-text text-transparent bg-linear-to-r from-white to-neutral-400  text-center font-sans font-bold">
           {name}
         </h1>
 
@@ -104,10 +104,10 @@ const Hero = ({ hasAnimated }) => {
         </div>
 
         {/* Stats */}
-        <div className="grid grid-cols-3 gap-10 max-w-xl mx-auto justify-between mb-8 animate-fade-in-up delay-500">
+        <div className="grid grid-cols-3 gap-10 max-w-xl mx-auto justify-between animate-fade-in-up delay-500">
           {heroData.stats.map((stat, index) => (
             <div key={index} className="text-center">
-              <div className="text-2xl font-bold text-primary mb-1 flex justify-center items-baseline gap-1">
+              <div className="text-2xl font-bold text-primary mb-1 flex justify-center items-baseline gap-0.5">
                 <NumberTicker value={stat.number} delay={0.5} />
                 {stat.suffix}
               </div>
