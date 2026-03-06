@@ -15,6 +15,18 @@ const Hero = ({ hasAnimated }) => {
 
   const { roles, name, description } = heroData;
 
+  const scrollToSection = (href) => {
+    const element = document.querySelector(href);
+    if (element) {
+      const navHeight = 60;
+      const elementPosition = element.offsetTop - navHeight;
+      window.scrollTo({
+        top: elementPosition,
+        behavior: "smooth",
+      });
+    }
+  };
+
   useEffect(() => {
     const currentRole = roles[currentTextIndex];
 
@@ -97,6 +109,10 @@ const Hero = ({ hasAnimated }) => {
               key={index}
               href={button.href}
               className="group relative px-5 py-2.5 rounded-lg font-medium text-sm transition-all duration-300 border border-black text-black dark:border-white dark:text-white hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black"
+              onClick={(e) => {
+                e.preventDefault();
+                scrollToSection(button.href);
+              }}
             >
               {button.text}
             </a>
@@ -104,7 +120,7 @@ const Hero = ({ hasAnimated }) => {
         </div>
 
         {/* Stats */}
-        <div className="grid grid-cols-3 gap-10 max-w-xl mx-auto justify-between animate-fade-in-up delay-500">
+        <div className="mb-15 grid grid-cols-3 gap-10 max-w-xl mx-auto justify-between animate-fade-in-up delay-500">
           {heroData.stats.map((stat, index) => (
             <div key={index} className="text-center">
               <div className="text-2xl font-bold text-primary mb-1 flex justify-center items-baseline gap-0.5">
@@ -116,6 +132,8 @@ const Hero = ({ hasAnimated }) => {
           ))}
         </div>
       </div>
+      {/* Top Right
+      <div className="absolute -bottom-40 -right-40 w-80 h-80 bg-linear-to-br dark:from-blue-400 dark:to-blue-700 opacity-10 blur-3xl animate-pulse delay-1000"></div> */}
     </section>
   );
 };
