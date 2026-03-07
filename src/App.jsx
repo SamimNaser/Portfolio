@@ -7,10 +7,13 @@ import Hero from "./components/Hero";
 import About from "./components/About";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
+import ScrollToTop from "./components/ScrollToTop";
+
+import { useScrollToTop } from "./hooks/useScrollToTop";
 
 function App() {
   const hasAnimated = useIntersectionObserver();
-  //const showScrollTop = useScrollToTop();
+  const showScrollTop = useScrollToTop();
 
   document.documentElement.classList.add("dark");
 
@@ -21,6 +24,7 @@ function App() {
       <About hasAnimated={hasAnimated} />
       <Contact hasAnimated={hasAnimated} />
       <Footer />
+      <ScrollToTop showScrollTop={showScrollTop} />
     </div>
   );
 }
