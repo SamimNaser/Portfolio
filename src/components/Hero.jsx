@@ -59,7 +59,7 @@ const Hero = ({ hasAnimated }) => {
   }, [currentText, currentTextIndex, isDeleting, typingSpeed, roles]);
 
   return (
-    <section className="relative min-h-screen py-20 flex items-center justify-center surface overflow-hidden">
+    <section className="relative min-h-screen py-30 flex items-center justify-center surface overflow-hidden">
       <Meteors />
       <div
         className={`relative z-10 text-center px-6 transition-all duration-1000 ${hasAnimated?.hero ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
@@ -120,7 +120,7 @@ const Hero = ({ hasAnimated }) => {
         </div>
 
         {/* Stats */}
-        <div className="mb-15 grid grid-cols-3 gap-10 max-w-xl mx-auto justify-between animate-fade-in-up delay-500">
+        <div className="grid grid-cols-3 gap-10 max-w-xl mx-auto justify-between animate-fade-in-up delay-500">
           {heroData.stats.map((stat, index) => (
             <div key={index} className="text-center">
               <div className="text-2xl font-bold text-primary mb-1 flex justify-center items-baseline gap-0.5">

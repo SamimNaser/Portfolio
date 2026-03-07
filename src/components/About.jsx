@@ -30,7 +30,7 @@ const Icon = ({ icon, size = 40 }) => (
 
 const About = ({ hasAnimated }) => {
   return (
-    <section id="about" className="relative min-h-screen py-16 px-6 surface">
+    <section id="about" className="relative min-h-screen py-10 px-6 surface">
       <div className="max-w-6xl mx-auto">
         <div
           className={`transition-all duration-1000 delay-200 ${hasAnimated.about ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
