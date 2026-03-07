@@ -59,14 +59,14 @@ const Hero = ({ hasAnimated }) => {
   }, [currentText, currentTextIndex, isDeleting, typingSpeed, roles]);
 
   return (
-    <section className="relative h-screen flex items-center justify-center bg-neutral-950 overflow-hidden">
+    <section className="relative min-h-screen py-20 flex items-center justify-center surface overflow-hidden">
       <Meteors />
       <div
         className={`relative z-10 text-center px-6 transition-all duration-1000 ${hasAnimated?.hero ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
         id="hero"
       >
         {/* Name */}
-        <h1 className="relative z-10 mb-6 mt-15 text-5xl md:text-8xl bg-clip-text text-transparent bg-linear-to-r from-white to-neutral-500  text-center font-sans font-bold">
+        <h1 className="relative z-10 mb-6 text-5xl md:text-8xl bg-clip-text text-transparent bg-linear-to-r from-white to-neutral-500  text-center font-sans font-bold">
           {name}
         </h1>
 
