@@ -2,6 +2,7 @@ import React, { useRef, useState } from "react";
 import { Mail, Github, Instagram, Send } from "lucide-react";
 import { contactLinks } from "../data/contact";
 import emailjs from "@emailjs/browser";
+import { TerminalDemo } from "./TerminalDemo";
 
 const baseButton =
   "flex items-center justify-center px-4 py-2 rounded-lg transition-colors text-sm font-medium";
@@ -75,11 +76,17 @@ const Contact = ({ hasAnimated }) => {
           </p>
 
           <div className="grid md:grid-cols-2 gap-12 md:gap-24 max-w-7xl mx-auto mt-12 w-full">
-            {/* Left Side Contact Buttons */}
+            {/* Left Side */}
             <div className="flex flex-col items-center justify-end text-center gap-6 w-full h-full">
-              <div className="text-primary text-sm">
-                <h2 className="text-2xl">Kolkata, India</h2>
+              {/* Terminal Animation */}
+              <div className="text-left w-full md:w-5/6 max-w-xl mx-auto h-78 md:h-full overflow-hidden">
+                <TerminalDemo />
               </div>
+              {/* Location Details */}
+              <div className="text-primary text-sm">
+                <h2 className="text-2xl">Kolkata,India</h2>
+              </div>
+              {/* Contact Buttons */}
               <div className="flex flex-row flex-wrap gap-4 justify-center">
                 {contactLinksWithIcons.map((link) => (
                   <a
