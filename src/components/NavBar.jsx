@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Cloud } from "lucide-react";
 
 const NavBar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [time, setTime] = useState("");
+  const [temperature, setTemperature] = useState(null);
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -35,6 +37,31 @@ const NavBar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  useEffect(() => {
+    const updateTime = () => {
+      const now = new Date();
+      setTime(
+        now.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }),
+      );
+    };
+
+    updateTime();
+    const interval = setInterval(updateTime, 60000);
+
+    fetch(
+      "https://api.open-meteo.com/v1/forecast?latitude=22.57&longitude=88.36&current_weather=true",
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        if (data?.current_weather?.temperature !== undefined) {
+          setTemperature(Math.round(data.current_weather.temperature));
+        }
+      })
+      .catch(() => {});
+
+    return () => clearInterval(interval);
+  }, []);
+
   const navItems = [
     { href: "#about", label: "ABOUT" },
     { href: "#projects", label: "PROJECTS" },
@@ -49,15 +76,19 @@ const NavBar = () => {
     >
       <div className="max-w-6xl mx-auto px-6 py-4">
         <div className="flex justify-between items-center">
-          {/* Portfolio Heading  */}
-          <div onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
-            <a className="text-lg font-bold transition-colors cursor-pointer text-primary hover:opacity-70">
-              PORTFOLIO
-            </a>
+          {/* Weather/Time Info */}
+          <div className="flex items-center gap-4 text-lg font-bold text-primary weather">
+            <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
+            <span>KOLKATA</span>
+            <span>{time}</span>
+            <span className="flex items-center gap-1">
+              <Cloud className="w-5 h-5" />
+              {temperature !== null ? `${temperature}°C` : "--"}
+            </span>
           </div>
 
           {/* Desktop Menu */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center gap-4">
             {navItems.map((item) => (
               <a
                 key={item.href}
@@ -103,7 +134,7 @@ const NavBar = () => {
                   e.preventDefault();
                   scrollToSection(item.href);
                 }}
-                className="block font-bold text-primary hover:text-primary transition-colors py-2"
+                className="block font-bold text-primary transition-colors py-2"
               >
                 {item.label}
               </a>
