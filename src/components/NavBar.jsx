@@ -76,8 +76,8 @@ const NavBar = () => {
     >
       <div className="max-w-6xl mx-auto px-6 py-4">
         <div className="flex justify-between items-center">
-          {/* Weather/Time Info */}
-          <div className="flex items-center gap-4 text-lg font-bold text-primary weather">
+          {/* Weather/Time/Location Info */}
+          <div className="flex items-center gap-2 md:gap-4 text-lg font-bold text-primary weather">
             <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
             <span>KOLKATA</span>
             <span>{time}</span>
