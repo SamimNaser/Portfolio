@@ -57,7 +57,7 @@ const Projects = ({ hasAnimated }) => {
                 </p>
 
                 <div className="mt-auto pt-8">
-                  <div className="flex flex-wrap gap-2 mb-7">
+                  <div className="flex flex-wrap gap-2 mb-5">
                     {project.tech.map((item) => (
                       <span
                         key={item}
@@ -73,7 +73,7 @@ const Projects = ({ hasAnimated }) => {
                       href={project.github}
                       target="_blank"
                       rel="noreferrer"
-                      className="inline-flex items-center gap-2 text-primary/80 hover:text-primary transition-colors"
+                      className="inline-flex items-center gap-2 text-primary/80 hover:text-primary transition-colors pl-1"
                     >
                       <Github className="w-4 h-4" />
                       Code
