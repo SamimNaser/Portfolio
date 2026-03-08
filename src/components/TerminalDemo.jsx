@@ -28,9 +28,6 @@ export function TerminalDemo() {
       <AnimatedSpan className="text-blue-500">
         ℹ Status: Available for collaboration
       </AnimatedSpan>
-      <AnimatedSpan className="text-blue-500">
-        ℹ Status: Always interested in new projects
-      </AnimatedSpan>
 
       <TypingAnimation className="text-muted-foreground">
         Waiting for incoming message...
