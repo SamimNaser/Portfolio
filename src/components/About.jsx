@@ -3,7 +3,6 @@ import React from "react";
 import { OrbitingCircles } from "./ui/orbiting-circles";
 import {
   siJavascript,
-  siTypescript,
   siReact,
   siFlutter,
   siPython,
