@@ -78,7 +78,7 @@ const About = ({ hasAnimated }) => {
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-6 h-6 rounded-full bg-cyan-400 "></div>
               <OrbitingCircles
                 className="top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
-                radius={155}
+                radius={150}
                 iconSize={34}
                 speed={2}
               >
@@ -89,7 +89,7 @@ const About = ({ hasAnimated }) => {
               </OrbitingCircles>
               <OrbitingCircles
                 className="top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
-                radius={110}
+                radius={105}
                 reverse
                 iconSize={32}
                 speed={1.5}
@@ -102,7 +102,7 @@ const About = ({ hasAnimated }) => {
 
               <OrbitingCircles
                 className="top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
-                radius={65}
+                radius={60}
                 iconSize={30}
                 speed={2}
               >
