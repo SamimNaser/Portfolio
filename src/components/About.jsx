@@ -94,10 +94,10 @@ const About = ({ hasAnimated }) => {
                 iconSize={32}
                 speed={1.5}
               >
-                <Icon icon={siPython} />
-                <Icon icon={siJavascript} />
-                <Icon icon={siTypescript} />
-                <Icon icon={siDart} />
+                <Icon icon={siHtml5} />
+                <Icon icon={siTailwindcss} />
+                <Icon icon={siReact} />
+                <Icon icon={siFlutter} />
               </OrbitingCircles>
 
               <OrbitingCircles
@@ -106,10 +106,15 @@ const About = ({ hasAnimated }) => {
                 iconSize={30}
                 speed={2}
               >
-                <Icon icon={siHtml5} />
-                <Icon icon={siTailwindcss} />
-                <Icon icon={siReact} />
-                <Icon icon={siFlutter} />
+                <Icon icon={siPython} />
+                <Icon icon={siJavascript} />
+                <img
+                  src="https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/svg/java.svg"
+                  alt="java"
+                  width={32}
+                  height={32}
+                />
+                <Icon icon={siDart} />
               </OrbitingCircles>
             </div>
           </div>
