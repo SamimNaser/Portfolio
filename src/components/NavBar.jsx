@@ -5,7 +5,24 @@ const NavBar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [time, setTime] = useState("");
-  const [temperature, setTemperature] = useState(null);
+  const [temperature, setTemperature] = useState(() => {
+    const CACHE_KEY = "portfolio_weather_cache";
+    const CACHE_DURATION = 10 * 60 * 1000;
+    const cached = localStorage.getItem(CACHE_KEY);
+
+    if (!cached) return null;
+
+    try {
+      const parsed = JSON.parse(cached);
+      if (Date.now() - parsed.timestamp < CACHE_DURATION) {
+        return parsed.temperature;
+      }
+    } catch (err) {
+      print(err); // ignore invalid cache data
+    }
+
+    return null;
+  });
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -37,6 +54,7 @@ const NavBar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Using weather data from cache if last call <= 10mins and refreshing
   useEffect(() => {
     const updateTime = () => {
       const now = new Date();
@@ -48,16 +66,37 @@ const NavBar = () => {
     updateTime();
     const interval = setInterval(updateTime, 60000);
 
-    fetch(
-      "https://api.open-meteo.com/v1/forecast?latitude=22.57&longitude=88.36&current_weather=true",
-    )
-      .then((res) => res.json())
-      .then((data) => {
-        if (data?.current_weather?.temperature !== undefined) {
-          setTemperature(Math.round(data.current_weather.temperature));
-        }
-      })
-      .catch(() => {});
+    const CACHE_KEY = "portfolio_weather_cache";
+    const CACHE_DURATION = 10 * 60 * 1000; // 10 minutes
+
+    const cached = localStorage.getItem(CACHE_KEY);
+
+    // cache already used during initial state load
+
+    const shouldFetch =
+      !cached || Date.now() - JSON.parse(cached).timestamp >= CACHE_DURATION;
+
+    if (shouldFetch) {
+      fetch(
+        "https://api.open-meteo.com/v1/forecast?latitude=22.57&longitude=88.36&current_weather=true",
+      )
+        .then((res) => res.json())
+        .then((data) => {
+          if (data?.current_weather?.temperature !== undefined) {
+            const temp = Math.round(data.current_weather.temperature);
+            setTemperature(temp);
+
+            localStorage.setItem(
+              CACHE_KEY,
+              JSON.stringify({
+                temperature: temp,
+                timestamp: Date.now(),
+              }),
+            );
+          }
+        })
+        .catch(() => {});
+    }
 
     return () => clearInterval(interval);
   }, []);
