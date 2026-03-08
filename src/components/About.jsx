@@ -43,7 +43,7 @@ const About = ({ hasAnimated }) => {
           </h2>
           <div className="grid md:grid-cols-3 gap-6 items-start ">
             {/* Intro Section */}
-            <div className="md:col-span-2 min-h-105 md:min-h-112.5 text-primary bg-primary/5 rounded-2xl p-8 flex flex-col gap-6 border border-primary/15 hover:border-primary/40 transition-all duration-300">
+            <div className="md:col-span-2 min-h-105 md:min-h-112.5 text-primary surface-elevated rounded-2xl p-8 flex flex-col gap-6 border border-primary/15 hover:border-primary/40 transition-all duration-300">
               {/* Avatar */}
               <img
                 src="/src/assets/profile.jpeg"
@@ -70,7 +70,7 @@ const About = ({ hasAnimated }) => {
             </div>
 
             {/* Placeholder Section (content to be decided later) */}
-            <div className="md:col-span-1 relative min-h-105 md:min-h-112.5 w-full overflow-hidden bg-primary/5 rounded-2xl px-10 border border-primary/15 hover:border-primary/40 transition-all duration-300">
+            <div className="md:col-span-1 relative min-h-105 md:min-h-112.5 w-full overflow-hidden surface-elevated rounded-2xl px-10 border border-primary/15 hover:border-primary/40 transition-all duration-300">
               {/* Center Glow */}
               {/* Blurred glow layer */}
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-24 h-24 rounded-full bg-cyan-400/50 blur-2xl"></div>
