@@ -15,6 +15,7 @@ const buttonVariants = {
 const Contact = ({ hasAnimated }) => {
   const formRef = useRef(null);
   const [sending, setSending] = useState(false);
+  const [status, setStatus] = useState(null);
 
   const sendEmail = (e) => {
     e.preventDefault();
@@ -24,18 +25,24 @@ const Contact = ({ hasAnimated }) => {
 
     emailjs
       .sendForm(
-        "YOUR_SERVICE_ID",
-        "YOUR_TEMPLATE_ID",
+        "service_j6bsdy7",
+        "template_ew8imgf",
         formRef.current,
-        "YOUR_PUBLIC_KEY",
+        "OPD_l8mGrU6cllLUN",
       )
       .then(() => {
-        alert("Message sent successfully");
+        setStatus({
+          type: "success",
+          text: "Message sent successfully. I'll get back to you soon.",
+        });
         formRef.current.reset();
       })
       .catch((err) => {
         console.error(err);
-        alert("Failed to send message");
+        setStatus({
+          type: "error",
+          text: "Failed to send message. Please try again.",
+        });
       })
       .finally(() => setSending(false));
   };
@@ -150,6 +157,16 @@ const Contact = ({ hasAnimated }) => {
                 {sending ? "Sending..." : "Send Message"}
                 <Send className="w-5 h-5" />
               </button>
+              {status && (
+                <div
+                  className={`flex items-center gap-2 mt-4 text-sm font-bold ${status.type === "success" ? "text-green-500" : "text-red-400"}`}
+                >
+                  <span
+                    className={`w-2 h-2 rounded-full animate-pulse ${status.type === "success" ? "bg-green-500" : "bg-red-400"}`}
+                  ></span>
+                  <h2>{status.text}</h2>
+                </div>
+              )}
             </form>
           </div>
         </div>
