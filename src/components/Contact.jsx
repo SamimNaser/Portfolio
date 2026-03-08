@@ -60,13 +60,13 @@ const Contact = ({ hasAnimated }) => {
   return (
     <section
       id="contact"
-      className="relative min-h-screen py-16 px-6 md:px-10 surface"
+      className="relative scroll-mt-24 py-14 md:py-20 px-6 md:px-10 surface"
     >
       <div className="max-w-6xl mx-auto text-center justify-center px-6">
         <div
           className={`transition-all duration-1000 delay-500 ${hasAnimated.contact ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
         >
-          <h2 className="text-3xl md:text-6xl font-bold mb-5 text-primary">
+          <h2 className="text-4xl md:text-6xl font-bold mb-5 text-primary">
             LET'S WORK TOGETHER
           </h2>
           <p className="text-xl text-primary mb-10 max-w-3xl mx-auto">
@@ -75,7 +75,7 @@ const Contact = ({ hasAnimated }) => {
             hello !
           </p>
 
-          <div className="grid md:grid-cols-2 gap-12 md:gap-24 max-w-7xl mx-auto justify-center mt-12 w-full">
+          <div className="grid md:grid-cols-2 gap-10 md:gap-16 max-w-7xl mx-auto justify-center mt-10 w-full">
             {/* Left Side */}
             <div className="flex flex-col items-center justify-end text-center gap-6 w-full h-full">
               {/* Terminal Animation */}

@@ -1,0 +1,103 @@
+import React from "react";
+import { ExternalLink, Github } from "lucide-react";
+import { projects } from "../data/projects";
+
+const Projects = ({ hasAnimated }) => {
+  const getStatusStyles = (status) => {
+    if (status === "Completed") {
+      return {
+        dot: "bg-green-400",
+        text: "text-green-400",
+      };
+    }
+
+    return {
+      dot: "bg-yellow-400",
+      text: "text-yellow-400",
+    };
+  };
+
+  return (
+    <section
+      id="projects"
+      className="relative scroll-mt-24 py-14 md:py-20 px-6 surface"
+    >
+      <div className="max-w-6xl mx-auto">
+        <div
+          className={`transition-all duration-1000 delay-200 ${hasAnimated?.projects ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
+        >
+          <h2 className="text-4xl md:text-6xl font-bold mb-12 text-center text-primary">
+            PROJECTS
+          </h2>
+
+          <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3 items-stretch">
+            {projects.map((project) => (
+              <article
+                key={project.title}
+                className="surface-elevated border border-primary/15 rounded-2xl p-7 md:p-8 min-h-96 h-full flex flex-col transition-all duration-300 hover:border-primary/40"
+              >
+                <p className="text-xs tracking-[0.14em] text-primary/55 mb-2 uppercase">
+                  {project.subtitle}
+                </p>
+                <h3 className="text-2xl md:text-3xl font-semibold text-primary mb-3">
+                  {project.title}
+                </h3>
+                <div className="mb-4 flex items-center gap-2">
+                  <span
+                    className={`w-2 h-2 rounded-full animate-pulse ${getStatusStyles(project.status).dot}`}
+                  ></span>
+                  <span
+                    className={`text-xs tracking-[0.18em] uppercase ${getStatusStyles(project.status).text}`}
+                  >
+                    {project.status}
+                  </span>
+                </div>
+                <p className="text-sm leading-relaxed text-primary/75">
+                  {project.description}
+                </p>
+
+                <div className="mt-auto pt-8">
+                  <div className="flex flex-wrap gap-2 mb-7">
+                    {project.tech.map((item) => (
+                      <span
+                        key={item}
+                        className="tech text-xs px-2.5 py-1 rounded-full border border-primary/20 text-primary/80"
+                      >
+                        {item}
+                      </span>
+                    ))}
+                  </div>
+
+                  <div className="flex items-center gap-4 text-sm">
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="inline-flex items-center gap-2 text-primary/80 hover:text-primary transition-colors"
+                    >
+                      <Github className="w-4 h-4" />
+                      Code
+                    </a>
+                    {project.demo && (
+                      <a
+                        href={project.demo}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="inline-flex items-center gap-2 text-primary/80 hover:text-primary transition-colors"
+                      >
+                        <ExternalLink className="w-4 h-4" />
+                        Live
+                      </a>
+                    )}
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Projects;

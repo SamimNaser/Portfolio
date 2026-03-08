@@ -14,7 +14,7 @@ import {
   siN8n,
   siGit,
   siVite,
-} from "simple-icons/icons";
+} from "simple-icons";
 
 const Icon = ({ icon, size = 40 }) => (
   <svg
@@ -30,17 +30,20 @@ const Icon = ({ icon, size = 40 }) => (
 
 const About = ({ hasAnimated }) => {
   return (
-    <section id="about" className="relative min-h-screen py-10 px-6 surface">
+    <section
+      id="about"
+      className="relative scroll-mt-24 py-14 md:py-20 px-6 surface"
+    >
       <div className="max-w-6xl mx-auto">
         <div
           className={`transition-all duration-1000 delay-200 ${hasAnimated.about ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
         >
-          <h2 className="text-3xl md:text-6xl font-bold mb-12 text-center text-primary ">
+          <h2 className="text-4xl md:text-6xl font-bold mb-12 text-center text-primary ">
             ABOUT ME
           </h2>
           <div className="grid md:grid-cols-3 gap-6 items-start ">
             {/* Intro Section */}
-            <div className="md:col-span-2 min-h-105 md:min-h-112.5 text-primary bg-primary/5 rounded-2xl p-8 flex flex-col gap-6 border border-transparent hover:border-primary transition-all duration-300">
+            <div className="md:col-span-2 min-h-105 md:min-h-112.5 text-primary bg-primary/5 rounded-2xl p-8 flex flex-col gap-6 border border-primary/15 hover:border-primary/40 transition-all duration-300">
               {/* Avatar */}
               <img
                 src="/src/assets/profile.jpeg"
@@ -67,7 +70,7 @@ const About = ({ hasAnimated }) => {
             </div>
 
             {/* Placeholder Section (content to be decided later) */}
-            <div className="md:col-span-1 relative min-h-105 md:min-h-112.5 w-full overflow-hidden bg-primary/5 rounded-2xl px-10 border border-transparent hover:border-primary transition-all duration-300">
+            <div className="md:col-span-1 relative min-h-105 md:min-h-112.5 w-full overflow-hidden bg-primary/5 rounded-2xl px-10 border border-primary/15 hover:border-primary/40 transition-all duration-300">
               {/* Center Glow */}
               {/* Blurred glow layer */}
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-24 h-24 rounded-full bg-cyan-400/50 blur-2xl"></div>
