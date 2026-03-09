@@ -45,7 +45,7 @@ const About = ({ hasAnimated }) => {
             <div className="md:col-span-2 lg:col-span-2 min-h-105 md:min-h-112.5 text-primary surface-elevated rounded-2xl p-8 flex flex-col gap-6 border border-primary/15 hover:border-primary/40 transition-all duration-300">
               {/* Avatar */}
               <img
-                src="public/profile.jpeg"
+                src="/profile.jpeg"
                 alt="Profile"
                 className="w-20 h-20 md:w-24 md:h-24 rounded-full object-cover"
               />
