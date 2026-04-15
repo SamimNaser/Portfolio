@@ -17,14 +17,14 @@ const Projects = ({ hasAnimated }) => {
   const getStatusStyles = (status) => {
     if (status === "Completed") {
       return {
-        dot: "bg-green-400",
-        text: "text-green-400",
+        dot: "bg-green-500",
+        text: "text-green-500",
       };
     }
 
     return {
-      dot: "bg-yellow-400",
-      text: "text-yellow-400",
+      dot: "bg-yellow-500",
+      text: "text-yellow-500",
     };
   };
 
@@ -76,9 +76,10 @@ const Projects = ({ hasAnimated }) => {
                       {project.title}
                     </h3>
                     <div className="mb-4 flex items-center gap-2">
-                      <span
-                        className={`w-2 h-2 rounded-full animate-pulse ${getStatusStyles(project.status).dot}`}
-                      ></span>
+                      <span className="relative flex h-2 w-2">
+                        <span className={`absolute inline-flex h-full w-full animate-ping rounded-full opacity-75 ${getStatusStyles(project.status).dot}`}></span>
+                        <span className={`relative inline-flex h-2 w-2 rounded-full ${getStatusStyles(project.status).dot}`}></span>
+                      </span>
                       <span
                         className={`text-xs tracking-[0.18em] uppercase ${getStatusStyles(project.status).text}`}
                       >

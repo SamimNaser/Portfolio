@@ -159,11 +159,12 @@ const Contact = ({ hasAnimated }) => {
               </button>
               {status && (
                 <div
-                  className={`flex items-center gap-2 mt-4 text-sm font-bold ${status.type === "success" ? "text-green-500" : "text-red-400"}`}
+                  className={`flex items-center gap-2 mt-4 text-sm font-bold ${status.type === "success" ? "text-green-500" : "text-red-500"}`}
                 >
-                  <span
-                    className={`w-2 h-2 rounded-full animate-pulse ${status.type === "success" ? "bg-green-500" : "bg-red-400"}`}
-                  ></span>
+                  <span className="relative flex h-2 w-2 shrink-0">
+                    <span className={`absolute inline-flex h-full w-full animate-ping rounded-full opacity-75 ${status.type === "success" ? "bg-green-500" : "bg-red-500"}`}></span>
+                    <span className={`relative inline-flex h-2 w-2 rounded-full ${status.type === "success" ? "bg-green-500" : "bg-red-500"}`}></span>
+                  </span>
                   <h2>{status.text}</h2>
                 </div>
               )}

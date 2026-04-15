@@ -117,7 +117,10 @@ const NavBar = () => {
         <div className="flex justify-between items-center">
           {/* Weather/Time/Location Info */}
           <div className="flex items-center gap-2 md:gap-4 text-lg font-bold text-primary weather">
-            <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
+            <span className="relative flex h-2 w-2">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-500 opacity-75"></span>
+              <span className="relative inline-flex h-2 w-2 rounded-full bg-green-500"></span>
+            </span>
             <span>KOLKATA</span>
             <span>{time}</span>
             <span className="flex items-center gap-1">

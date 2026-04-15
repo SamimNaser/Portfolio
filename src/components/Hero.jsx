@@ -1,6 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import { heroData } from "../data/hero";
+import { fetchCurrentlyBuilding } from "../data/currentlyBuilding";
 
 import { Meteors } from "./ui/meteors";
 import { NumberTicker } from "./ui/number-ticker";
@@ -12,8 +13,13 @@ const Hero = ({ hasAnimated }) => {
   const [currentText, setCurrentText] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
   const [typingSpeed, setTypingSpeed] = useState(150);
+  const [currentProject, setCurrentProject] = useState(null);
 
   const { roles, name, description } = heroData;
+
+  useEffect(() => {
+    fetchCurrentlyBuilding().then(setCurrentProject);
+  }, []);
 
   const scrollToSection = (href) => {
     const element = document.querySelector(href);
@@ -131,6 +137,25 @@ const Hero = ({ hasAnimated }) => {
             </div>
           ))}
         </div>
+
+        {/* Currently Building Pill */}
+        {currentProject && (
+          <div className="mt-20 flex justify-center animate-fade-in-up delay-500">
+            <a
+              href={currentProject.url}
+              target="_blank"
+              rel="noreferrer"
+              className="group inline-flex items-center gap-2.5 px-5 py-3 rounded-full border border-primary/15 surface-elevated hover:border-primary/40 transition-all duration-300"
+            >
+              <span className="relative flex h-2 w-2">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-blue-500 opacity-75"></span>
+                <span className="relative inline-flex h-2 w-2 rounded-full bg-blue-500"></span>
+              </span>
+              <span className="text-xs text-primary/50 uppercase tracking-wider">Currently building</span>
+              <span className="text-sm font-semibold text-primary group-hover:text-blue-500 transition-colors">{currentProject.name}</span>
+            </a>
+          </div>
+        )}
       </div>
       {/* Top Right
       <div className="absolute -bottom-40 -right-40 w-80 h-80 bg-linear-to-br dark:from-blue-400 dark:to-blue-700 opacity-10 blur-3xl animate-pulse delay-1000"></div> */}
