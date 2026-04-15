@@ -1,34 +1,93 @@
-// projectsData.js
+const getStatus = (repo) => {
+  if (repo.topics?.includes("in-progress")) return "Under Development";
+  if (repo.topics?.includes("completed")) return "Completed";
+  return "Completed";
+};
 
-export const projects = [
-  {
-    title: "Medisight",
-    subtitle: "Healthcare Web Platform",
-    description:
-      "A healthcare-focused web application built with React. Medisight aims to provide intelligent insights and a clean, scalable UI. Currently under active development.",
-    tech: ["React", "TypeScript", "Tailwind CSS"],
-    status: "Under Development",
-    github: "https://github.com/your-username/medisight",
-    demo: null,
-  },
-  {
-    title: "Nike SNKRS",
-    subtitle: "E-commerce Mobile App Clone",
-    description:
-      "A Nike-inspired mobile application built using Flutter with modern UI, smooth animations, and reusable components.",
-    tech: ["Flutter", "Dart"],
-    status: "Completed",
-    github: "https://github.com/your-username/nike-flutter-clone",
-    demo: null,
-  },
-  {
-    title: "Weather App",
-    subtitle: "Real-time Weather Application",
-    description:
-      "A Flutter-based weather app providing real-time weather updates using external APIs with clean UI and state management.",
-    tech: ["Flutter", "Dart", "REST API"],
-    status: "Completed",
-    github: "https://github.com/your-username/flutter-weather-app",
-    demo: null,
-  },
-];
+export async function fetchProjects() {
+  const CACHE_KEY = "portfolio_projects_cache_v1";
+  const CACHE_TTL = 1000 * 60 * 60; // 1 hour
+
+  try {
+    // 1) Check cache
+    const cached = localStorage.getItem(CACHE_KEY);
+    if (cached) {
+      const parsed = JSON.parse(cached);
+      console.log("Using cached projects:", parsed.data);
+
+      // Ignore empty cached data
+      if (
+        parsed.data &&
+        parsed.data.length > 0 &&
+        Date.now() - parsed.timestamp < CACHE_TTL
+      ) {
+        return parsed.data;
+      }
+    }
+
+    // 2) Fetch from GitHub
+    const res = await fetch(
+      "https://api.github.com/users/SamimNaser/repos?per_page=100",
+      {
+        headers: {
+          Accept: "application/vnd.github.mercy-preview+json",
+        },
+      },
+    );
+
+    if (!res.ok) {
+      if (res.status === 403) {
+        console.warn("GitHub API rate limit exceeded");
+      }
+      throw new Error("Failed to fetch projects");
+    }
+
+    const data = await res.json();
+    console.log("GitHub repos:", data);
+
+    // 3) Transform
+    const filtered = data.filter((repo) => repo.topics?.includes("portfolio"));
+
+    const result = filtered.map((repo) => {
+      const tech = repo.topics?.filter(
+        (t) => !["portfolio", "completed", "in-progress"].includes(t),
+      );
+
+      return {
+        title: repo.name,
+        subtitle: repo.language || "Project",
+        description: repo.description || "No description provided",
+        tech: tech || [],
+        status: getStatus(repo),
+        github: repo.html_url,
+        demo: repo.homepage || null,
+        image: `https://raw.githubusercontent.com/SamimNaser/${repo.name}/main/preview.png`,
+      };
+    });
+
+    // 4) Save to cache
+    // Only cache if we have valid data
+    if (result.length > 0) {
+      localStorage.setItem(
+        CACHE_KEY,
+        JSON.stringify({
+          timestamp: Date.now(),
+          data: result,
+        }),
+      );
+    }
+
+    return result;
+  } catch (error) {
+    console.error(error);
+
+    // 5) Fallback to cache if available
+    const cached = localStorage.getItem(CACHE_KEY);
+    if (cached) {
+      const parsed = JSON.parse(cached);
+      return parsed.data;
+    }
+
+    return [];
+  }
+}
