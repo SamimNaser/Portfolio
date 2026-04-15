@@ -3,7 +3,7 @@ import { AnimatedSpan, Terminal, TypingAnimation } from "./ui/terminal";
 export function TerminalDemo() {
   return (
     <Terminal>
-      <TypingAnimation>&gt; ssh samim@portfolio.dev</TypingAnimation>
+      <TypingAnimation>&gt; ssh samimnaser.github.io</TypingAnimation>
 
       <AnimatedSpan className="text-muted-foreground">
         Authenticating...
