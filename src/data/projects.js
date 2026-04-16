@@ -50,7 +50,8 @@ export async function fetchProjects() {
 
     const result = filtered.map((repo) => {
       const tech = repo.topics?.filter(
-        (t) => !["portfolio", "completed", "in-progress"].includes(t),
+        (t) =>
+          !["portfolio", "completed", "in-progress", "currently-building"].includes(t),
       );
 
       return {
