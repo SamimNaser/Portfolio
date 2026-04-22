@@ -89,17 +89,12 @@ const About = ({ hasAnimated }) => {
                     ecosystem for building scalable frontends.
                   </p>
                   <p className="text-primary/75 leading-relaxed">
-                    Currently expanding my backend skills with{" "}
-                    <span className="text-primary font-medium">Python</span>,
-                    diving into{" "}
-                    <span className="text-primary font-medium">
-                      database management
-                    </span>{" "}
-                    using{" "}
-                    <span className="text-primary font-medium">MySQL</span>{" "}
-                    alongside Python — building a stronger foundation in
-                    server-side logic, data modeling, and structured query
-                    design.
+                    Currently, I'm expanding my backend capabilities using{" "}
+                    <span className="text-primary font-medium">Python</span> and{" "}
+                    <span className="text-primary font-medium">MySQL</span>. I'm
+                    focused on building a stronger foundation in server-side
+                    architecture, from designing structured queries to
+                    developing efficient, data-driven systems.
                   </p>
                   <p className="text-primary/75 leading-relaxed">
                     I'm also deeply curious about{" "}
