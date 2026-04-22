@@ -1,3 +1,5 @@
+import { getTechIcon } from "./techIcons";
+
 const getStatus = (repo) => {
   if (repo.topics?.includes("in-progress")) return "Under Development";
   if (repo.topics?.includes("completed")) return "Completed";
@@ -5,7 +7,7 @@ const getStatus = (repo) => {
 };
 
 export async function fetchProjects() {
-  const CACHE_KEY = "portfolio_projects_cache_v1";
+  const CACHE_KEY = "portfolio_projects_cache_v2";
   const CACHE_TTL = 1000 * 60 * 60; // 1 hour
 
   try {
@@ -49,16 +51,22 @@ export async function fetchProjects() {
     const filtered = data.filter((repo) => repo.topics?.includes("portfolio"));
 
     const result = filtered.map((repo) => {
-      const tech = repo.topics?.filter(
+      const techTopics = repo.topics?.filter(
         (t) =>
           !["portfolio", "completed", "in-progress", "currently-building"].includes(t),
       );
+      const tech = techTopics
+        .map((topic) => ({
+          name: topic,
+          icon: getTechIcon(topic),
+        }))
+        .filter((t) => t.icon !== null);
 
       return {
         title: repo.name,
         subtitle: repo.language || "Project",
         description: repo.description || "No description provided",
-        tech: tech || [],
+        tech: tech,
         status: getStatus(repo),
         github: repo.html_url,
         demo: repo.homepage || null,

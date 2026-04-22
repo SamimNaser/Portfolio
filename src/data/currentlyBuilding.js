@@ -1,5 +1,5 @@
 export async function fetchCurrentlyBuilding() {
-  const CACHE_KEY = "portfolio_currently_building_v1";
+  const CACHE_KEY = "portfolio_currently_building_v2";
   const CACHE_TTL = 1000 * 60 * 60; // 1 hour
 
   try {
