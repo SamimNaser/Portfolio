@@ -4,7 +4,7 @@ import { getTechIcon } from "../data/techIcons";
 const techNames = [
   "html5",
   "css3",
-  "tailwindcss",
+  "tailwind",
   "javascript",
   "typescript",
   "react",
@@ -44,9 +44,8 @@ const About = ({ hasAnimated }) => {
     >
       <div className="max-w-6xl mx-auto">
         <div
-          className={`transition-all duration-1000 delay-200 ${
-            animated ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-          }`}
+          className={`transition-all duration-1000 delay-200 ${animated ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+            }`}
         >
           {/* Heading */}
           <h2 className="text-4xl md:text-6xl font-bold mb-12 text-center text-primary">
@@ -112,7 +111,7 @@ const About = ({ hasAnimated }) => {
 
           {/* Tech Stack */}
           <div>
-            <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-3">
+            <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 auto-rows-fr gap-3">
               {techStack.map(({ icon, name, color }, i) => (
                 <TechCard
                   key={name}
@@ -134,6 +133,7 @@ const About = ({ hasAnimated }) => {
 const TechCard = ({ icon, name, color, delay, animated }) => {
   return (
     <div
+      className="h-full"
       style={{
         transitionProperty: "opacity, transform",
         transitionTimingFunction: "ease-out",
@@ -144,9 +144,9 @@ const TechCard = ({ icon, name, color, delay, animated }) => {
       }}
     >
       {/* Inner div: handles all hover interactions with a fast, independent transition */}
-      <div className="group flex flex-col items-center gap-2.5 p-4 rounded-xl border border-primary/10 surface-elevated hover:border-primary/30 hover:scale-105 transition-[transform,border-color,filter] duration-200 ease-out cursor-default select-none">
-        {/* Icon — grayscale by default, full color on card hover */}
-        <div className="w-8 h-8 flex items-center justify-center grayscale brightness-75 group-hover:grayscale-0 group-hover:brightness-100 transition-[filter] duration-150">
+      <div className="h-full group flex flex-col items-center justify-center gap-2.5 p-4 rounded-xl border border-primary/10 surface-elevated hover:border-primary/30 hover:scale-105 transition-[transform,border-color,filter] duration-200 ease-out cursor-default select-none">
+        {/* Icon — full color on mobile, grayscale by default on desktop, full color on card hover */}
+        <div className="w-8 h-8 flex items-center justify-center grayscale-0 brightness-100 md:grayscale md:brightness-75 group-hover:grayscale-0 group-hover:brightness-100 transition-[filter] duration-150">
           <svg
             role="img"
             viewBox={icon.viewBox || "0 0 24 24"}
@@ -165,7 +165,7 @@ const TechCard = ({ icon, name, color, delay, animated }) => {
         </div>
 
         {/* Label */}
-        <span className="text-[11px] font-mono text-primary/55 group-hover:text-primary/90 transition-colors duration-150 text-center leading-tight">
+        <span className="text-[11px] font-mono text-primary/90 md:text-primary/55 group-hover:text-primary/90 transition-colors duration-150 text-center leading-tight">
           {name}
         </span>
       </div>
