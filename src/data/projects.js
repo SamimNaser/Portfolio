@@ -1,7 +1,7 @@
 import { getTechIcon } from "./techIcons";
 
 const getStatus = (repo) => {
-  if (repo.topics?.includes("in-progress")) return "Under Development";
+  if (repo.topics?.includes("in-progress")) return "Building";
   if (repo.topics?.includes("completed")) return "Completed";
   return "Completed";
 };
