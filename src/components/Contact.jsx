@@ -74,7 +74,7 @@ const Contact = ({ hasAnimated }) => {
           className={`transition-all duration-1000 delay-500 ${hasAnimated.contact ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
         >
           <h2 className="text-4xl md:text-6xl font-bold mb-12 text-primary">
-            LET'S WORK TOGETHER
+            LET'S CONNECT
           </h2>
 
           <div className="grid md:grid-cols-2 gap-10 md:gap-16 max-w-7xl mx-auto justify-center mt-10 w-full">
@@ -86,7 +86,7 @@ const Contact = ({ hasAnimated }) => {
               </div>
               {/* Location Details */}
               <div className="text-primary text-sm">
-                <h2 className="text-2xl">Kolkata,India</h2>
+                <h2 className="text-2xl">Kolkata, India</h2>
               </div>
               {/* Contact Buttons */}
               <div className="flex flex-row flex-wrap gap-4 justify-center">
@@ -143,7 +143,7 @@ const Contact = ({ hasAnimated }) => {
                 <textarea
                   name="message"
                   rows="2"
-                  placeholder="Tell me about your project..."
+                  placeholder="Tell me what you're working on..."
                   required
                   className="border-b border-gray-700 bg-transparent pb-5 outline-none text-primary text-2xl md:text-3xl font-semibold placeholder:text-primary/40 resize-none focus:border-white transition-colors duration-300"
                 />

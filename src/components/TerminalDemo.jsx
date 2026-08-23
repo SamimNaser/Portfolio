@@ -3,30 +3,26 @@ import { AnimatedSpan, Terminal, TypingAnimation } from "./ui/terminal";
 export function TerminalDemo() {
   return (
     <Terminal>
-      <TypingAnimation>&gt; ssh samimnaser.github.io</TypingAnimation>
+      <TypingAnimation>&gt; ./connect --user samim</TypingAnimation>
 
       <AnimatedSpan className="text-muted-foreground">
-        Authenticating...
+        Initializing connection…
       </AnimatedSpan>
 
       <AnimatedSpan className="text-green-500">
-        ✔ Identity verified
+        ✓ Developer profile loaded
       </AnimatedSpan>
 
       <AnimatedSpan className="text-green-500">
-        ✔ Secure channel established
+        ✓ Projects indexed
       </AnimatedSpan>
 
       <AnimatedSpan className="text-green-500">
-        ✔ Signal strength: excellent
-      </AnimatedSpan>
-
-      <AnimatedSpan className="text-green-500">
-        ✔ Developer profile loaded
+        ✓ Communication channel ready
       </AnimatedSpan>
 
       <AnimatedSpan className="text-blue-500">
-        ℹ Status: Available for collaboration
+        Status: Available
       </AnimatedSpan>
 
       <TypingAnimation className="text-muted-foreground">
