@@ -1,12 +1,12 @@
 export const heroData = {
   name: "SK SAMIM NASER",
-  roles: ["Frontend Developer", "App Developer"],
+  roles: ["Full Stack Developer", "UI/UX Designer", "AI & Automation"],
   description:
-    "Built on a strong Java foundation, my experience spans app development and modern web technologies. I'm currently exploring AI and automation to create intelligent, efficient, and user-focused solutions.",
+    "I build software with a focus on modern web technologies, while exploring AI and automation to turn ideas into practical, useful products.",
   stats: [
-    { number: 5, suffix: "+", label: "Apps & Projects" },
-    { number: 3, suffix: "+", label: "Year Learning & Building" },
-    { number: 10, suffix: "+", label: "Technologies" },
+    { number: 5, suffix: "+", label: "Projects Built" },
+    { number: 4, suffix: "+", label: "Years Building" },
+    { number: 10, suffix: "+", label: "Technologies Explored" },
   ],
   socialLinks: [
     {
