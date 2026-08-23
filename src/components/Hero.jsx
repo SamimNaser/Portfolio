@@ -3,10 +3,9 @@ import React, { useState, useEffect } from "react";
 import { heroData } from "../data/hero";
 import { fetchCurrentlyBuilding } from "../data/currentlyBuilding";
 
-import { Meteors } from "./ui/meteors";
 import { NumberTicker } from "./ui/number-ticker";
 
-import { ArrowDown, Github, Instagram, Mail } from "lucide-react";
+import { Github, Instagram, Mail } from "lucide-react";
 
 const Hero = ({ hasAnimated }) => {
   const [currentTextIndex, setCurrentTextIndex] = useState(0);
@@ -65,14 +64,14 @@ const Hero = ({ hasAnimated }) => {
   }, [currentText, currentTextIndex, isDeleting, typingSpeed, roles]);
 
   return (
-    <section className="relative min-h-screen py-30 flex items-center justify-center surface overflow-hidden">
-      <Meteors />
+    <section className="relative min-h-screen py-30 -mb-px flex items-center justify-center surface overflow-hidden">
+      <div className="hero-image-background" aria-hidden="true" />
       <div
         className={`relative z-10 text-center px-6 transition-all duration-1000 ${hasAnimated?.hero ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
         id="hero"
       >
         {/* Name */}
-        <h1 className="relative z-10 mb-6 text-5xl md:text-8xl bg-clip-text text-transparent bg-linear-to-r from-white to-neutral-500  text-center font-sans font-bold">
+        <h1 className="relative z-10 mb-6 text-5xl md:text-8xl text-white text-center font-sans font-bold">
           {name}
         </h1>
 
@@ -83,7 +82,7 @@ const Hero = ({ hasAnimated }) => {
         </div>
 
         {/* Description */}
-        <p className="mb-10 text-lg leading-relaxed max-w-5xl md:text-xl text-neutral-400">
+        <p className="mb-10 text-lg leading-relaxed max-w-5xl md:text-xl text-neutral-300">
           {description}
         </p>
 
@@ -100,7 +99,7 @@ const Hero = ({ hasAnimated }) => {
               <a
                 key={index}
                 href={social.url}
-                className="group p-3 surface rounded-full shadow-md hover:shadow-lg transition-all duration-300 transform hover:scale-110 hover:-translate-y-1.5"
+                className="group p-3 rounded-full bg-transparent transition-all duration-300 transform hover:scale-110 hover:-translate-y-1.5"
               >
                 <IconComponent className="w-6 h-6 text-primary group-hover:text-white transition-colors" />
               </a>
